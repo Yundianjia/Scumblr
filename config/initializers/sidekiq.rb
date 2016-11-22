@@ -16,6 +16,15 @@
 require 'sidekiq'
 require 'sidekiq-status'
 
+redis_url = "redis://:Fy958e5mmyb7Ta4H@127.0.0.1:6379/0"
+
+sidekiq_redis_params = {
+  url: redis_url,
+  namespace: 'scumblr'
+}
+
+Sidekiq.redis = sidekiq_redis_params
+
 Sidekiq.configure_client do |config|
   config.client_middleware do |chain|
     chain.add Sidekiq::Status::ClientMiddleware
@@ -27,7 +36,7 @@ Sidekiq.configure_server do |config|
   Rails.logger = Sidekiq::Logging.logger
   ActiveRecord::Base.logger = Sidekiq::Logging.logger
   Sidekiq::Logging.logger.level = Logger::INFO
-
+  
   config.server_middleware do |chain|
     chain.add Sidekiq::Status::ServerMiddleware, expiration: 30.minutes # default
   end

@@ -8,7 +8,7 @@ development:
   password: scumblr
   port: 5432
   pool: 75
-  socket: /tmp/mysql.sock
+  # socket: /tmp/mysql.sock
 
 # staging:
 #   adapter: postgresql

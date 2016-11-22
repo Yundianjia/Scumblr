@@ -69,6 +69,10 @@ gem 'oj'
 #Bulk edits
 gem 'activerecord-import'
 
+# redis
+gem 'redis-rails'
+gem 'redis-namespace'
+
 #Used for task queueing
 gem 'sidekiq'
 gem 'sidekiq-status'
@@ -142,6 +146,8 @@ group :development, :dirtylaundrydev do
   gem 'rails-footnotes', '>= 4.0.0', '<5'
   gem 'railroady'
   gem 'ruby_gntp'
+  gem 'pry-rails'
+  gem 'quiet_assets'         # https://github.com/evrone/quiet_assets
   # gem 'rack-perftools_profiler', :require => 'rack/perftools_profiler'
 end
 
